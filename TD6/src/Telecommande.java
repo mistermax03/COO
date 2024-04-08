@@ -34,6 +34,7 @@ public class Telecommande {
         for (Lampe lampe : lampes) {
             r.append(lampe).append('\n');
         }
+        r.deleteCharAt(r.length()-1);
         return r.toString();
     }
 }
