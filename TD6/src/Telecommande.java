@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Telecommande {
-    private ArrayList<Lampe> lampes;
+    private ArrayList<Telecommandable> lampes;
 
     public Telecommande() {
         lampes = new ArrayList<>();
@@ -11,8 +11,13 @@ public class Telecommande {
         lampes = new ArrayList<>();
         lampes.add(new Lampe(nom));
     }
+
     public void ajouterLampe(Lampe lampe) {
         lampes.add(lampe);
+    }
+
+    public void ajouterHifi(Hifi hifi) {
+        lampes.add(hifi);
     }
 
     public void activerLampe(int indiceLampe) {
@@ -23,15 +28,15 @@ public class Telecommande {
     }
 
     public void activerTout() {
-        lampes.forEach(Lampe::allumer);
+        lampes.forEach(Telecommandable::allumer);
     }
 
-    public Lampe[] getLampesArray() {
-        return lampes.toArray(new Lampe[0]);
+    public Telecommandable[] getLampesArray() {
+        return lampes.toArray(new Telecommandable[0]);
     }
     public String toString() {
         StringBuilder r = new StringBuilder();
-        for (Lampe lampe : lampes) {
+        for (Telecommandable lampe : lampes) {
             r.append(lampe).append('\n');
         }
         r.deleteCharAt(r.length()-1);
