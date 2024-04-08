@@ -13,6 +13,14 @@ public class Lampe {
         allume = false;
     }
 
+    public boolean getEtat() {
+        return allume;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
     @Override
     public String toString() {
         return nom + " " + (allume?"on":"off");

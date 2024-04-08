@@ -26,6 +26,9 @@ public class Telecommande {
         lampes.forEach(Lampe::allumer);
     }
 
+    public Lampe[] getLampesArray() {
+        return lampes.toArray(new Lampe[0]);
+    }
     public String toString() {
         StringBuilder r = new StringBuilder();
         for (Lampe lampe : lampes) {
