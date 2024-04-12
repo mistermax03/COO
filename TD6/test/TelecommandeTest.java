@@ -10,9 +10,9 @@ class TelecommandeTest {
         Lampe l1 = new Lampe("l1");
         Telecommande t = new Telecommande();
 
-        t.ajouterLampe(l1);
+        t.ajouterAppareil(l1);
 
-        assertEquals(l1.toString(), t.getLampesArray()[0].toString());
+        assertEquals(l1.toString(), t.getAppareilArray()[0].toString());
     }
 
     /**
@@ -22,11 +22,11 @@ class TelecommandeTest {
     void activerLampe() {
         Telecommande t = new Telecommande("l1");
 
-        assertFalse(t.getLampesArray()[0].getEtat());
+        assertFalse(((Lampe)t.getAppareilArray()[0]).getEtat());
 
-        t.activerLampe(0);
+        t.activerAppareil(0);
 
-        assertTrue(t.getLampesArray()[0].getEtat());
+        assertTrue(((Lampe)t.getAppareilArray()[0]).getEtat());
     }
 
     /**
@@ -36,15 +36,15 @@ class TelecommandeTest {
     void desactiverLampe() {
         Telecommande t = new Telecommande("l1");
 
-        assertFalse(t.getLampesArray()[0].getEtat());
+        assertFalse(((Lampe)t.getAppareilArray()[0]).getEtat());
 
-        t.activerLampe(0);
+        t.activerAppareil(0);
 
-        assertTrue(t.getLampesArray()[0].getEtat());
+        assertTrue(((Lampe)t.getAppareilArray()[0]).getEtat());
 
-        t.desactiverLampe(0);
+        t.desactiverAppareil(0);
 
-        assertFalse(t.getLampesArray()[0].getEtat());
+        assertFalse(((Lampe)t.getAppareilArray()[0]).getEtat());
     }
 
     /**
@@ -56,19 +56,23 @@ class TelecommandeTest {
         Lampe l2 = new Lampe("l2");
         Lampe l3 = new Lampe("l3");
         Telecommande t = new Telecommande();
-        t.ajouterLampe(l1);
-        t.ajouterLampe(l2);
-        t.ajouterLampe(l3);
+        t.ajouterAppareil(l1);
+        t.ajouterAppareil(l2);
+        t.ajouterAppareil(l3);
 
-        for (Lampe l : t.getLampesArray()) {
-            assertFalse(l.getEtat());
+        for (Telecommandable l : t.getAppareilArray()) {
+            assertFalse(((Lampe)l).getEtat());
         }
 
         t.activerTout();
 
-        for (Lampe l : t.getLampesArray()) {
-            assertTrue(l.getEtat());
+        for (Telecommandable l : t.getAppareilArray()) {
+            assertTrue(((Lampe)l).getEtat());
         }
+    }
+
+    @Test
+    void Hifi() {
 
     }
 }

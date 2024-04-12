@@ -1,43 +1,40 @@
 import java.util.ArrayList;
 
 public class Telecommande {
-    private ArrayList<Telecommandable> lampes;
+    private ArrayList<Telecommandable> appareils;
 
     public Telecommande() {
-        lampes = new ArrayList<>();
+        appareils = new ArrayList<>();
     }
 
     public Telecommande(String nom) {
-        lampes = new ArrayList<>();
-        lampes.add(new Lampe(nom));
+        appareils = new ArrayList<>();
+        appareils.add(new Lampe(nom));
     }
 
-    public void ajouterLampe(Lampe lampe) {
-        lampes.add(lampe);
+    public void ajouterAppareil(Telecommandable appareil) {
+        appareils.add(appareil);
     }
 
-    public void ajouterHifi(Hifi hifi) {
-        lampes.add(hifi);
-    }
 
-    public void activerLampe(int indiceLampe) {
-        lampes.get(indiceLampe).allumer();
+    public void activerAppareil(int indice) {
+        appareils.get(indice).allumer();
     }
-    public void desactiverLampe(int indiceLampe) {
-        lampes.get(indiceLampe).eteindre();
+    public void desactiverAppareil(int indice) {
+        appareils.get(indice).eteindre();
     }
 
     public void activerTout() {
-        lampes.forEach(Telecommandable::allumer);
+        appareils.forEach(Telecommandable::allumer);
     }
 
-    public Telecommandable[] getLampesArray() {
-        return lampes.toArray(new Telecommandable[0]);
+    public Telecommandable[] getAppareilArray() {
+        return appareils.toArray(new Telecommandable[0]);
     }
     public String toString() {
         StringBuilder r = new StringBuilder();
-        for (Telecommandable lampe : lampes) {
-            r.append(lampe).append('\n');
+        for (Telecommandable app : appareils) {
+            r.append(app).append('\n');
         }
         r.deleteCharAt(r.length()-1);
         return r.toString();
