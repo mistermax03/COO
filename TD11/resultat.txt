@@ -1,0 +1,8 @@
+chargerMagasin instancie un ChargeurMagasin vec un l'entree de l'utilisateur en parametre
+Le main appele la methode chargerMagasin du chargeur
+    le ChargeurMagasin instancie un magasin
+    le ChargeurMagasin instancie un ChargeurCD
+    le ChargeurMagasin appele la méthode chargerCD du ChargeurCD
+        le chareurCD creer  un CD
+        puis appele la méthode extrairePiste puis ajouterPiste du CD 2 fois
+    Le ChargeurMAgasin appele ajouterCD du Magasin avec le CD en parametre
