@@ -1,6 +1,7 @@
 package donnees;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * La classe Magasin represente un magasin qui vend des CDs.</p>
@@ -56,7 +57,7 @@ public class Magasin {
 	}
 	
 	/**
-	 * permet d'acceder à un CD
+	 * permet d'acceder ï¿½ un CD
 	 * 
 	 * @return le cd a l'indice i ou null si indice est non valide
 	 */
@@ -66,8 +67,18 @@ public class Magasin {
 		if ((i>=0)&&(i<this.listeCds.size()))
 			res=this.listeCds.get(i);
 		return(res);
+
+
 	}
 
-	// TODO  ajouter une methode de tri
+    public void trierAriste() {
+    }
+
+	public void trierAlbum() {
+	}
+
+	public void trier(Comparator<CD> c) {
+		this.listeCds = TriAlbum.trier(this.listeCds, c);
+	}
 
 }
